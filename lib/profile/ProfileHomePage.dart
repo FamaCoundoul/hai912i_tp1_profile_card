@@ -9,7 +9,7 @@ class ProfileHomepage extends StatelessWidget {
   static const String nom_pers="Fama COUNDOUL";
   static const String email="fama@lirmm.fr";
   static const String twitter="XXXXXXXXXXX";
-  static const Color primaryColor= Colors.pinkAccent;
+  static const Color primaryColor= Color(0xFFB04BFF);
   static const String tel="XXXXXXXXXXX";
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ProfileHomepage extends StatelessWidget {
                style: TextStyle(color: couleur),
         ),
         centerTitle: false,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFFB04BFF),
         elevation: 8,
       ),
       body: Container(

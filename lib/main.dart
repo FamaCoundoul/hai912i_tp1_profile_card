@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hai912i_tp1_profile_card/profile/HomeMenuPage.dart';
 import 'package:hai912i_tp1_profile_card/profile/ProfileHomePage.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
      return MaterialApp(
        title:'My First Flutter App' ,
        theme: ThemeData(),//donnees relatives au theme choisi
-       home: const ProfileHomepage(),//le widget de la page d'accueil
+       home: const HomeMenuPage(),//le widget de la page d'accueil
      );
   }
 }

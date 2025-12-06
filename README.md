@@ -1,52 +1,164 @@
-# Exercice 1 : Application de Carte de Profil (Profile Card)
 
-## Objectif de l'Exercice
+#  Exercice 1 : Application Flutter – Page d’Accueil + Carte de Profil
 
-Le but de cet exercice est de concevoir et d'implémenter un widget ProfileHomepage en utilisant le framework Flutter. Ce widget sert à afficher les informations essentielles du profil d'une personne dans un format visuellement attrayant et structuré.
+##  Objectif de l'Exercice
 
-L'objectif principal est de maîtriser l'utilisation des widgets de mise en page fondamentaux pour créer des interfaces utilisateur composées et responsives.
+L’objectif de cet exercice est d’implémenter une mini-application Flutter composée de :
 
-## Structure et Composants Clés
+1. **Une page d’accueil moderne (HomeMenuPage)** avec :
 
-L'application est structurée autour d'un widget principal qui regroupe deux parties distinctes et superposées.
+    * une photo de profil,
+    * le nom et la fonction professionnelle,
+    * une vague décorative (wave clip),
+    * un menu interactif (My Profile, Messages, etc.).
 
-- Le Widget Principal (ProfileHomepage)
+2. **Une page de profil détaillée (ProfileHomePage)** présentant une carte de profil avec :
 
-Ce widget est un StatelessWidget qui définit la structure globale de la page (Scaffold avec AppBar et body).
+    * l’avatar,
+    * le nom,
+    * les informations personnelles (email, téléphone, réseaux sociaux).
 
-Le corps (body) utilise un Stack pour permettre la superposition de l'avatar sur la carte de profil.
+3. **Un système de navigation** permettant d’accéder à ProfileHomePage via la rubrique **My Profile**.
 
-- La Carte d'Information (_buildProfileCard)
+Cet exercice permet de maîtriser :
 
-Rôle : Contenir les informations textuelles du profil (nom, email, réseau social).
+* les widgets de mise en page avancée (Stack, ClipPath, CustomClipper),
+* la navigation Flutter (`Navigator.push`),
+* la création de composants UI réutilisables,
+* la structuration d'une interface mobile professionnelle.
 
-Widget utilisé : Card pour une élévation visuelle.
+---
 
-Mise en page interne : Un Column est utilisé pour disposer les éléments verticalement.
+##  Structure du Projet
 
-Responsivité : La largeur de la carte est limitée à une taille maximale (400) ou à 90% de la largeur de l'écran pour s'adapter aux différents appareils.
+```
+lib/
+ ├─ main.dart
+ ├─ HomeMenuPage.dart       ← Page d’accueil avec menu + vague
+ ├─ ProfileHomePage.dart    ← Page carte de profil
+assets/
+ ├─ profile.png
+ ├─ rendu.png
+```
 
-- L'Avatar du Profil (_buildAvatar)
+---
 
-Rôle : Afficher la photo de profil avec une bordure et un effet visuel.
+##  Navigation Principale (main.dart)
 
-Widgets utilisés : CircleAvatar est l'outil idiomatique de Flutter pour afficher des images circulaires. Il est enveloppé dans un Container pour gérer les ombres (boxShadow) et les dimensions.
+Le fichier `main.dart` initialise l’application et affiche la page d’accueil :
 
-Positionnement : Le widget est positionné en haut de la Stack pour chevaucher légèrement la carte d'information, créant l'effet visuel désiré.
+```dart
+import 'package:flutter/material.dart';
+import 'HomeMenuPage.dart';
 
-## Détails Techniques et Bonnes Pratiques
+void main() {
+  runApp(const MyApp());
+}
 
-- Thématisation : L'application utilise des constantes pour les couleurs (primaryColor en rose vif, couleur en blanc) afin de faciliter la modification du thème.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-- Clarté du Code : La logique de construction de la carte et de l'avatar est séparée dans des méthodes privées (_buildProfileCard, _buildAvatar), améliorant la lisibilité du code.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeMenuPage(),
+    );
+  }
+}
+```
 
-- Icônes et Texte : La méthode _buildDetailRow illustre l'alignement d'une icône (Icons.email, FontAwesomeIcons.twitter) et du texte correspondant pour une présentation claire des coordonnées. Avec la dépendance font_awesome_flutter: '>= 4.7.0' ajouter dans pubspec.yaml
+---
 
-- Données : Les informations de profil sont définies comme des constantes statiques en haut de la classe pour un accès et une modification faciles.
+##  Page d’Accueil : `HomeMenuPage`
 
-## Exécution
+La page d’accueil affiche :
 
-Pour exécuter cette application, vous devez la placer dans un environnement Flutter, l'importer dans le fichier main.dart et l'utiliser comme widget principal (ou l'intégrer dans une route de navigation).
+* une **photo de profil**,
+* un **nom + titre professionnel**,
+* une **vague graphique** identique au design de référence,
+* une **liste de rubriques**,
+* un bouton **Logout**.
 
-## Rendu de l'application
-!(./rendu.png)
+ Lorsque l’utilisateur clique sur **My Profile**, il est redirigé vers la page `ProfileHomePage` grâce à :
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (_) => const ProfileHomePage()),
+);
+```
+
+La page inclut :
+
+* un **header gradient**,
+* une **double vague CustomClipper**,
+* un menu interactif.
+
+---
+
+##  Page Profil : `ProfileHomePage`
+
+Cette page affiche une carte de profil reprenant les éléments suivants :
+
+* Avatar circulaire avec ombre,
+* Nom complet,
+* Email,
+* Réseaux sociaux / Téléphone,
+* Carte stylisée (Widget `Card`),
+* Mise en page centrée à l’aide de `Stack` et `Column`.
+
+Elle reprend les principes décrits dans la version précédente du README , notamment :
+
+* séparation en méthodes `_buildProfileCard` et `_buildAvatar`,
+* utilisation d’icônes (email, Twitter, téléphone),
+* design responsive grâce aux contraintes de largeur max.
+
+---
+
+##  Schéma de Navigation
+
+```mermaid
+flowchart TD
+    A[HomeMenuPage] -->|Clique sur My Profile| B[ProfileHomePage]
+```
+
+---
+
+## ️ Aperçu des Interfaces
+
+### 📍 Page d’accueil (HomeMenuPage)
+
+```
+![Home](./profile.png)
+```
+
+### 📍 Page Profil (ProfileHomePage)
+
+```
+![Profil](./rendu.png)
+```
+
+---
+
+##  Exécution de l'Application
+
+1. Assure-toi d'avoir Flutter installé.
+2. 
+4. Lance l’application :
+
+```sh
+flutter run
+```
+
+---
+
+##  Résultat Attendu
+
+* Une page d’accueil moderne et responsive.
+* Une navigation fluide vers la page de profil.
+* Un design professionnel basé sur Stack, ClipPath, Card et CircleAvatar.
+* Un code propre, bien structuré et facilement extensible.
+
+---
+
