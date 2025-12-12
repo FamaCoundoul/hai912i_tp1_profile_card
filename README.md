@@ -2,11 +2,17 @@
 #  Exercice 1 : Application Flutter – Page d’Accueil + Carte de Profil
 
 ##  Présentation  de l'application
-L’application se compose de trois ´ecrans principaux :
-   1. Une page d’accueil pour la saisie du nom du joueur
-   2. Une page de quiz interactive avec timer
-   3. Une page de classement (leaderboard)
-<img src="./profile.png" width="300"/>  <img src="./rendu.png" width="300"/>
+L’application d´eveloppée dans cet exercice est une mini-application mobile Flut-
+ter orientée interface utilisateur, dont le but est de simuler la présentation d’un
+profil professionnel à travers deux écrans principaux.
+Elle se compose :
+    • d’une page d’accueil jouant le rˆole de menu principal,
+    • d’une page de profil affichant les informations personnelles de l’utilisateur.
+
+<div style="display: flex; gap: 20px;">
+  <img src="./profile.png" width="300" alt="accueil"/>
+  <img src="./rendu.png" width="300" alt="profile"/>
+</div>
 
 ##  Objectif de l'Exercice
 
