@@ -1,6 +1,13 @@
 
 #  Exercice 1 : Application Flutter – Page d’Accueil + Carte de Profil
 
+##  Présentation  de l'application
+L’application se compose de trois ´ecrans principaux :
+   1. Une page d’accueil pour la saisie du nom du joueur
+   2. Une page de quiz interactive avec timer
+   3. Une page de classement (leaderboard)
+<img src="./profile.png"/>  <img src="./rendu.png"/>
+
 ##  Objectif de l'Exercice
 
 L’objectif de cet exercice est d’implémenter une mini-application Flutter composée de :
