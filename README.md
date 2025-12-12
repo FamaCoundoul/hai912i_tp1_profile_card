@@ -6,7 +6,7 @@ L’application se compose de trois ´ecrans principaux :
    1. Une page d’accueil pour la saisie du nom du joueur
    2. Une page de quiz interactive avec timer
    3. Une page de classement (leaderboard)
-<img src="./profile.png"/>  <img src="./rendu.png"/>
+<img src="./profile.png" width="300"/>  <img src="./rendu.png" width="300"/>
 
 ##  Objectif de l'Exercice
 
